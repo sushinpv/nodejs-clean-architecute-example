@@ -14,7 +14,7 @@ router.get("", serverController.defaultController);
  * Load all users route
  */
 
-router.use("/user", authUser, usersRoutes);
+router.use("/user", usersRoutes);
 
 /**
  * Load all auth routes

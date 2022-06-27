@@ -1,19 +1,11 @@
-const users = [
-  {
-    _id: 1,
-    name: "Sushin",
-    admin: "abc",
-  },
-  {
-    _id: 2,
-    name: "Arushi",
-    admin: "abc",
-  },
-  {
-    _id: 3,
-    name: "Debasis",
-    admin: "abd",
-  },
-];
+const mongoose = require("mongoose");
 
-module.exports = users;
+const userSchema = new mongoose.Schema({
+  name: String,
+  admin: String,
+  isActive: Boolean,
+});
+
+const UserModel = mongoose.model("users", userSchema);
+
+module.exports = UserModel;

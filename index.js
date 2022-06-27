@@ -1,4 +1,5 @@
 require("dotenv").config();
+const dbConnect = require("./src/services/db-connect");
 const express = require("express");
 const morgan = require("morgan");
 const routes = require("./src/routes");
@@ -24,6 +25,10 @@ app.use(routes);
 /**
  * Listen
  */
+
+dbConnect()
+  .then((done) => console.log("db connected"))
+  .catch((err) => console.log(err));
 
 app.listen(process.env.SERVER_PORT, process.env.SERVER_HOST, (err) => {
   if (err) {
